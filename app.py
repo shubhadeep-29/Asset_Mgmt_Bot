@@ -34,7 +34,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     zone = parameters.get("Asset_data")
 
-    rem_hours = {'Machine1':100, 'Machine2':562, 'Machine3':342,'Machine4':1678, 'Machine5':473}
+    rem_hours = {'machine1':100, 'machine2':562, 'machine3':342,'machine4':1678, 'machine5':473}
 
     speech = "The predicted remaining time " + zone + " is " + str(rem_hours[zone]) + " hours."
 
