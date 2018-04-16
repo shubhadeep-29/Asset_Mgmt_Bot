@@ -28,15 +28,15 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "Profit":
+    if req.get("result").get("action") != "Remaining_Time":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("Profitbyproduct")
+    zone = parameters.get("Asset_data")
 
-    gain = {'Dettol':1000, 'Lizol':2000, 'Harpic':3000}
+    rem_hours = {'Machine1':100, 'Machine2':562, 'Machine3':342,'Machine4':1678, 'Machine5':473}
 
-    speech = "The profit for " + zone + " is " + str(gain[zone]) + " euros."
+    speech = "The predicted remaining time " + zone + " is " + str(rem_hours[zone]) + " hours."
 
     print("Response:")
     print(speech)
@@ -46,7 +46,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "dialog-flow-RB_bot-new"
+        "source": "dialog-flow-AM_bot"
     }
 
 
